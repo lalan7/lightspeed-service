@@ -1,6 +1,5 @@
 """Unit tests for OpenAI provider."""
 
-import os
 from pathlib import Path
 
 import httpx
@@ -241,7 +240,7 @@ def test_models_do_not_get_sampling_defaults_without_reasoning_config(
 
 
 def test_openai_picks_up_rotated_credentials(
-    tmp_path: Path, fake_certifi_store: str
+    tmp_path: Path,
 ) -> None:
     """Test that OpenAI provider re-reads credentials when hot-reload is enabled."""
     secret_file = tmp_path / "apitoken"
@@ -274,7 +273,7 @@ def test_openai_picks_up_rotated_credentials(
 
 
 def test_openai_returns_cached_credentials_when_hot_reload_disabled(
-    tmp_path: Path, fake_certifi_store: str
+    tmp_path: Path,
 ) -> None:
     """Test that credentials are cached (not re-read) when hot-reload is disabled."""
     secret_file = tmp_path / "apitoken"
